@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Hardware Front-End Engineer | Computer Architecture Fresher | Yooben Personal Blog">
     <meta name="keyword" content="体系结构, FPGA, ASIC, Computer Architecture, Compiler, Deep Learning">
-    <link rel="shortcut icon" href="/liyb13.github.io/img/favicon.ico">
+    <link rel="shortcut icon" href="/bourne-x.github.io/img/favicon.ico">
 
     <title>
         
@@ -17,16 +17,16 @@
         
     </title>
 
-    <link rel="canonical" href="http://epochs.me/liyb13.github.io/2020/07/22/read_hw_arch/2020-07-26-computer-arch-01-hello/">
+    <link rel="canonical" href="http://epochs.me/bourne-x.github.io/2020/07/22/read_hw_arch/2020-07-26-computer-arch-01-hello/">
 
     <!-- Bootstrap Core CSS -->
-    <link rel="stylesheet" href="/liyb13.github.io/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/bourne-x.github.io/css/bootstrap.min.css">
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="/liyb13.github.io/css/hux-blog.min.css">
+    <link rel="stylesheet" href="/bourne-x.github.io/css/hux-blog.min.css">
 
     <!-- Pygments Highlight CSS -->
-    <link rel="stylesheet" href="/liyb13.github.io/css/highlight.css">
+    <link rel="stylesheet" href="/bourne-x.github.io/css/highlight.css">
 
     <!-- Custom Fonts -->
     <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
@@ -67,7 +67,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="/liyb13.github.io/">KISS</a>
+            <a class="navbar-brand" href="/bourne-x.github.io/">KISS</a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
@@ -80,7 +80,7 @@
             <div class="navbar-collapse">
                 <ul class="nav navbar-nav navbar-right">
                     <li>
-                        <a href="/liyb13.github.io/">Home</a>
+                        <a href="/bourne-x.github.io/">Home</a>
                     </li>
 
                     
@@ -90,21 +90,21 @@
 
                         
                         <li>
-                            <a href="/liyb13.github.io/about/">About</a>
+                            <a href="/bourne-x.github.io/archives/">Archives</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/liyb13.github.io/archives/">Archives</a>
+                            <a href="/bourne-x.github.io/about/">About</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/liyb13.github.io/tags/">Tags</a>
+                            <a href="/bourne-x.github.io/tags/">Tags</a>
                         </li>
                         
                     
@@ -149,13 +149,13 @@
     <!-- Main Content -->
     
 <!-- Image to hack wechat -->
-<!-- <img src="http://epochs.me/liyb13.github.io/img/icon_wechat.png" width="0" height="0"> -->
+<!-- <img src="http://epochs.me/bourne-x.github.io/img/icon_wechat.png" width="0" height="0"> -->
 <!-- <img src="{{ site.baseurl }}/{% if page.header-img %}{{ page.header-img }}{% else %}{{ site.header-img }}{% endif %}" width="0" height="0"> -->
 
 <!-- Post Header -->
 <style type="text/css">
     header.intro-header{
-        background-image: url('/liyb13.github.io/img/home-bg.jpg')
+        background-image: url('/bourne-x.github.io/img/home-bg.jpg')
     }
 </style>
 <header class="intro-header" >
@@ -165,11 +165,11 @@
                 <div class="post-heading">
                     <div class="tags">
                         
-                          <a class="tag" href="/liyb13.github.io/tags/#Arch (体系结构)" title="Arch (体系结构)">Arch (体系结构)</a>
+                          <a class="tag" href="/bourne-x.github.io/tags/#Arch (体系结构)" title="Arch (体系结构)">Arch (体系结构)</a>
                         
-                          <a class="tag" href="/liyb13.github.io/tags/#Digital (数字逻辑)" title="Digital (数字逻辑)">Digital (数字逻辑)</a>
+                          <a class="tag" href="/bourne-x.github.io/tags/#Digital (数字逻辑)" title="Digital (数字逻辑)">Digital (数字逻辑)</a>
                         
-                          <a class="tag" href="/liyb13.github.io/tags/#笔记" title="笔记">笔记</a>
+                          <a class="tag" href="/bourne-x.github.io/tags/#笔记" title="笔记">笔记</a>
                         
                     </div>
                     <h1>「HW-ARCH」1 From Zero to One</h1>
@@ -195,7 +195,7 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <h3 id="The-Game-Plan"><a href="#The-Game-Plan" class="headerlink" title="The Game Plan"></a>The Game Plan</h3><p>I am studying the course with the beginning of digital logic gates that accept 1’s and 0’s as inputs and produce 1’s and 0’s as outputs. Then explore how to combine logic gates into more complicated modules such as adders and memories. Then shift gears to programming in assembly language, that native tongure of the microprocessor. Finally, put together to build a microprocessor that runs these assembly language programs.<br>A great advantage of digital systems is that the building blocks are quite simple: just 1’s and 0’s. The designer’s challenge is to combine these simple blocks into complicated systems. One of the major task is to learn <font color="#008000">how to manage complexity</font>.</p>
+                <h4 id="The-Game-Plan"><a href="#The-Game-Plan" class="headerlink" title="The Game Plan"></a>The Game Plan</h4><p>I am studying the course with the beginning of digital logic gates that accept 1’s and 0’s as inputs and produce 1’s and 0’s as outputs. Then explore how to combine logic gates into more complicated modules such as adders and memories. Then shift gears to programming in assembly language, that native tongure of the microprocessor. Finally, put together to build a microprocessor that runs these assembly language programs.<br>A great advantage of digital systems is that the building blocks are quite simple: just 1’s and 0’s. The designer’s challenge is to combine these simple blocks into complicated systems. One of the major task is to learn <font color="#008000">how to manage complexity</font>.</p>
 <h3 id="The-Art-of-Managing-Complexity"><a href="#The-Art-of-Managing-Complexity" class="headerlink" title="The Art of Managing Complexity"></a>The Art of Managing Complexity</h3><ul>
 <li><font color="#008000">Abstraction</font>: hiding details when they are not important. The critical technique for managing complexity. Levels of abstraction for an electronic computing system are <ul>
 <li>Application Software (Programs)</li>
@@ -250,7 +250,7 @@
                     
                     
                         <li class="next">
-                            <a href="/liyb13.github.io/2015/07/09/js-module-7day/" data-toggle="tooltip" data-placement="top" title="Example Post using Keynote Layout">Next Post &rarr;</a>
+                            <a href="/bourne-x.github.io/2015/07/09/js-module-7day/" data-toggle="tooltip" data-placement="top" title="Example Post using Keynote Layout">Next Post &rarr;</a>
                         </li>
                     
                 </ul>
@@ -280,14 +280,14 @@
                 
                 <section>
                     <!-- no hr -->
-                    <h5><a href="/liyb13.github.io/tags/">FEATURED TAGS</a></h5>
+                    <h5><a href="/bourne-x.github.io/tags/">FEATURED TAGS</a></h5>
                     <div class="tags">
                        
-                          <a class="tag" href="/liyb13.github.io/tags/#Arch (体系结构)" title="Arch (体系结构)">Arch (体系结构)</a>
+                          <a class="tag" href="/bourne-x.github.io/tags/#Arch (体系结构)" title="Arch (体系结构)">Arch (体系结构)</a>
                         
-                          <a class="tag" href="/liyb13.github.io/tags/#Digital (数字逻辑)" title="Digital (数字逻辑)">Digital (数字逻辑)</a>
+                          <a class="tag" href="/bourne-x.github.io/tags/#Digital (数字逻辑)" title="Digital (数字逻辑)">Digital (数字逻辑)</a>
                         
-                          <a class="tag" href="/liyb13.github.io/tags/#笔记" title="笔记">笔记</a>
+                          <a class="tag" href="/bourne-x.github.io/tags/#笔记" title="笔记">笔记</a>
                         
                     </div>
                 </section>
@@ -462,13 +462,13 @@
 </footer>
 
 <!-- jQuery -->
-<script src="/liyb13.github.io/js/jquery.min.js"></script>
+<script src="/bourne-x.github.io/js/jquery.min.js"></script>
 
 <!-- Bootstrap Core JavaScript -->
-<script src="/liyb13.github.io/js/bootstrap.min.js"></script>
+<script src="/bourne-x.github.io/js/bootstrap.min.js"></script>
 
 <!-- Custom Theme JavaScript -->
-<script src="/liyb13.github.io/js/hux-blog.min.js"></script>
+<script src="/bourne-x.github.io/js/hux-blog.min.js"></script>
 
 
 <!-- async load function -->
@@ -506,7 +506,7 @@
 <script>
     // only load tagcloud.js in tag.html
     if($('#tag_cloud').length !== 0){
-        async("http://epochs.me/liyb13.github.io/js/jquery.tagcloud.js",function(){
+        async("http://epochs.me/bourne-x.github.io/js/jquery.tagcloud.js",function(){
             $.fn.tagcloud.defaults = {
                 //size: {start: 1, end: 1, unit: 'em'},
                 color: {start: '#bbbbee', end: '#0085a1'},
@@ -554,7 +554,7 @@
 
 
 <!-- Image to hack wechat -->
-<img src="http://epochs.me/liyb13.github.io/img/icon_wechat.png" width="0" height="0" />
+<img src="http://epochs.me/bourne-x.github.io/img/icon_wechat.png" width="0" height="0" />
 <!-- Migrate from head to bottom, no longer block render and still work -->
 
 </body>
