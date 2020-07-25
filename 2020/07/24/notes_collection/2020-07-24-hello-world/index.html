@@ -1,270 +1,383 @@
 <!DOCTYPE html>
-<html lang="en">
 
-<!-- Head tag -->
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang>
 <head><meta name="generator" content="Hexo 3.9.0">
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Hardware Front-End Engineer | Computer Architecture Fresher | Yooben Personal Blog">
-    <meta name="keyword" content="体系结构, FPGA, ASIC, Computer Architecture, Compiler, Deep Learning">
-    <link rel="shortcut icon" href="/bourne-x.github.io/img/favicon.ico">
-
-    <title>
-        
-          Bourne 终于有了自己的 Blog - Bourne&#39;s Blog
-        
-    </title>
-
-    <link rel="canonical" href="http://epochs.me/bourne-x.github.io/2020/07/24/notes_collection/2020-07-24-hello-world/">
-
-    <!-- Bootstrap Core CSS -->
-    <link rel="stylesheet" href="/bourne-x.github.io/css/bootstrap.min.css">
-
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="/bourne-x.github.io/css/hux-blog.min.css">
-
-    <!-- Pygments Highlight CSS -->
-    <link rel="stylesheet" href="/bourne-x.github.io/css/highlight.css">
-
-    <!-- Custom Fonts -->
-    <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
-    <!-- Hux change font-awesome CDN to qiniu -->
-    <link href="https://cdn.staticfile.org/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
 
 
-    <!-- Hux Delete, sad but pending in China
-    <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/
-    css'>
-    -->
 
 
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-
-    <!-- ga & ba script hoook -->
-    <script></script>
-</head>
 
 
-<!-- hack iOS CSS :active style -->
-<body ontouchstart="">
 
-    <!-- Navigation -->
-<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
-    <div class="container-fluid">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header page-scroll">
-            <button type="button" class="navbar-toggle">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="/bourne-x.github.io/">KISS</a>
-        </div>
 
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <!-- Known Issue, found by Hux:
-            <nav>'s height woule be hold on by its content.
-            so, when navbar scale out, the <nav> will cover tags.
-            also mask any touch event of tags, unfortunately.
-        -->
-        <div id="huxblog_navbar">
-            <div class="navbar-collapse">
-                <ul class="nav navbar-nav navbar-right">
-                    <li>
-                        <a href="/bourne-x.github.io/">Home</a>
-                    </li>
 
-                    
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
 
-                        
-                    
 
-                        
-                        <li>
-                            <a href="/bourne-x.github.io/about/">About</a>
-                        </li>
-                        
-                    
 
-                        
-                        <li>
-                            <a href="/bourne-x.github.io/archives/">Archives</a>
-                        </li>
-                        
-                    
 
-                        
-                        <li>
-                            <a href="/bourne-x.github.io/tags/">Tags</a>
-                        </li>
-                        
-                    
-                    
-                </ul>
-            </div>
-        </div>
-        <!-- /.navbar-collapse -->
-    </div>
-    <!-- /.container -->
-</nav>
-<script>
-    // Drop Bootstarp low-performance Navbar
-    // Use customize navbar with high-quality material design animation
-    // in high-perf jank-free CSS3 implementation
-    var $body   = document.body;
-    var $toggle = document.querySelector('.navbar-toggle');
-    var $navbar = document.querySelector('#huxblog_navbar');
-    var $collapse = document.querySelector('.navbar-collapse');
 
-    $toggle.addEventListener('click', handleMagic)
-    function handleMagic(e){
-        if ($navbar.className.indexOf('in') > 0) {
-        // CLOSE
-            $navbar.className = " ";
-            // wait until animation end.
-            setTimeout(function(){
-                // prevent frequently toggle
-                if($navbar.className.indexOf('in') < 0) {
-                    $collapse.style.height = "0px"
-                }
-            },400)
-        }else{
-        // OPEN
-            $collapse.style.height = "auto"
-            $navbar.className += " in";
-        }
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/bourne-x.github.io/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/bourne-x.github.io/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/bourne-x.github.io/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/bourne-x.github.io/images/yub.jpg?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/bourne-x.github.io/images/yub.jpg?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/bourne-x.github.io/images/yub.jpg?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/bourne-x.github.io/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="hexo,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="Bourn tends to be ‘forgetful’,The amnesiac hero wonders who he is and why he has such deadly skills.He finally kowns who he is, but “Bourne” doesn’t know how to process that information.Finally, it h">
+<meta name="keywords" content="hexo">
+<meta property="og:type" content="article">
+<meta property="og:title" content="「HEXO」我的第一篇Blog - Hexo 博客搭建">
+<meta property="og:url" content="http://epochs.me/2020/07/24/notes_collection/2020-07-24-hello-world/index.html">
+<meta property="og:site_name" content="KISS">
+<meta property="og:description" content="Bourn tends to be ‘forgetful’,The amnesiac hero wonders who he is and why he has such deadly skills.He finally kowns who he is, but “Bourne” doesn’t know how to process that information.Finally, it h">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2020-07-25T18:06:32.887Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="「HEXO」我的第一篇Blog - Hexo 博客搭建">
+<meta name="twitter:description" content="Bourn tends to be ‘forgetful’,The amnesiac hero wonders who he is and why he has such deadly skills.He finally kowns who he is, but “Bourne” doesn’t know how to process that information.Finally, it h">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/bourne-x.github.io/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
     }
+  };
 </script>
 
 
-    <!-- Main Content -->
+
+  <link rel="canonical" href="http://epochs.me/2020/07/24/notes_collection/2020-07-24-hello-world/">
+
+
+
+
+
+  <title>「HEXO」我的第一篇Blog - Hexo 博客搭建 | KISS</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
     
-<!-- Image to hack wechat -->
-<!-- <img src="http://epochs.me/bourne-x.github.io/img/icon_wechat.png" width="0" height="0"> -->
-<!-- <img src="{{ site.baseurl }}/{% if page.header-img %}{{ page.header-img }}{% else %}{{ site.header-img }}{% endif %}" width="0" height="0"> -->
+  
 
-<!-- Post Header -->
-<style type="text/css">
-    header.intro-header{
-        background-image: url('hello-blog.jpg')
-    }
-</style>
-<header class="intro-header" >
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <div class="post-heading">
-                    <div class="tags">
-                        
-                          <a class="tag" href="/bourne-x.github.io/tags/#hexo" title="hexo">hexo</a>
-                        
-                          <a class="tag" href="/bourne-x.github.io/tags/#life" title="life">life</a>
-                        
-                    </div>
-                    <h1>Bourne 终于有了自己的 Blog</h1>
-                    <h2 class="subheading"> &quot;Hello World, Hello Blog&quot;</h2>
-                    <span class="meta">
-                        Posted by Bourne on
-                        2020-07-24
-                    </span>
-                </div>
-            </div>
-        </div>
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/bourne-x.github.io/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">KISS</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
     </div>
-</header>
+      
+        <p class="site-subtitle">Simple & Stupid</p>
+      
+  </div>
 
-<!-- Post Content -->
-<article>
-    <div class="container">
-        <div class="row">
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
 
-    <!-- Post Container -->
-            <div class="
-                col-lg-8 col-lg-offset-2
-                col-md-10 col-md-offset-1
-                post-container">
+<nav class="site-nav">
+  
 
-                <blockquote>
-<p>Bourn tends to be ‘forgetful’,<br>The amnesiac hero wonders who he is and why he has such deadly skills.<br>He finally kowns who he is, but “Bourne” doesn’t know how to process that information. </p>
-<p>……</p>
-<p>it has all come back to him.<br>“I remember,” he says, “I remember everything.”<br>he creates this space to write his stuff down.”</p>
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/bourne-x.github.io/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/bourne-x.github.io/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/bourne-x.github.io/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/bourne-x.github.io/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/bourne-x.github.io/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://epochs.me/bourne-x.github.io/2020/07/24/notes_collection/2020-07-24-hello-world/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Bourne">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/bourne-x.github.io/images/yub.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="KISS">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">「HEXO」我的第一篇Blog - Hexo 博客搭建</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-07-24T12:00:00+08:00">
+                2020-07-24
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/bourne-x.github.io/categories/blog/" itemprop="url" rel="index">
+                    <span itemprop="name">blog</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote>
+<p>Bourn tends to be ‘forgetful’,<br>The amnesiac hero wonders who he is and why he has such deadly skills.<br>He finally kowns who he is, but “Bourne” doesn’t know how to process that information.<br>Finally, it has all come back to him.<br>He creates this space to write his stuff down.</p>
 </blockquote>
-<p><font color="blue">前言：另一个Bourne</font>🧐</p>
-<p>Yeah. It’s the beginning.<br>作为半个程序员，常畅游于各位大神的自留地，流连忘返。从上大学开始，向往可以有一个自己的 Blog , 收集每天一米阳光。待明日，打开旧时光⏰。<br>2020 年，Bourne 终于有一块自己的田地，关于生活👨‍🍼，关机技术🤷‍♂️，关于自我🤦‍♂️。</p>
+<a id="more"></a>
 <hr>
-<p><font color="blue">正文：hexo博客搭建</font>🐬</p>
-<ul>
-<li><p>下载安装 Git</p>
-</li>
-<li><p>下载NodeJS客户端，某些版本可能与npm存在兼容性的问题，可通过下命令查看版本。</p>
-<figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">node</span> <span class="title">-v</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>安装 hexo</p>
-<figure class="highlight avrasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g hexo-<span class="keyword">cli</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>初始化 Hexo</p>
-<ul>
-<li>创建个人文件夹 Hexo</li>
-<li><p>在 Hexo 文件夹内，右键运行 Git Bash, 输入命令</p>
-<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">hexo init</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>基础配置 _config.yml</p>
-</li>
-</ul>
-</li>
-<li><p>本地浏览博客</p>
-<ul>
-<li><p>输入命令</p>
-<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">hexo g</span></span><br><span class="line"><span class="attribute">hexo s</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>本地浏览 localhost:4000</p>
-</li>
-</ul>
-</li>
-<li><p>发布到 GitHub</p>
-<ul>
-<li><p>设置 Git 的 user name 和 email</p>
-<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git<span class="built_in"> config </span>--global user.name <span class="string">"yourname"</span></span><br><span class="line">git<span class="built_in"> config </span>--global user.email <span class="string">"your email"</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>生成密钥</p>
-<figure class="highlight excel"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -<span class="built_in">t</span> rsa -C <span class="string">"youremail"</span> -f your_file</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>添加公钥（publickey）至 GitHub。登录 GitHub，进入个人设置 settings -&gt; ssh and gpg keys -&gt; new ssh key，添加新生成的公钥。</p>
-</li>
-<li><p>测试是否连接成功</p>
-<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">ssh</span> -T git<span class="variable">@github</span>.com</span><br></pre></td></tr></table></figure>
-<p>一般在添加公钥之后，可能会遇到下面的问题：</p>
-<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">**Host key verification failed.**</span><br><span class="line">fatal: Could <span class="keyword">not</span> <span class="built_in">read</span> <span class="keyword">from</span> remote repository.</span><br></pre></td></tr></table></figure>
-<p>这是由于.ssh文件夹缺少了 known_hosts 文件，输入以下命令：</p>
-<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">ssh</span> git<span class="variable">@github</span>.com</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>部署</p>
-<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">hexo d</span></span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-</li>
-<li><p>添加访问统计</p>
-<ul>
-<li>修改配置文件 /themes/xxx/layout/_partial/sidebar.ejs.<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"linkslist"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">span</span> <span class="attr">id</span>=<span class="string">"busuanzi_container_site_uv"</span>&gt;</span></span><br><span class="line">  本站访客数<span class="tag">&lt;<span class="name">span</span> <span class="attr">id</span>=<span class="string">"busuanzi_value_site_uv"</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span>人次</span><br><span class="line"><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"linkslist"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">span</span> <span class="attr">id</span>=<span class="string">"busuanzi_container_site_pv"</span>&gt;</span></span><br><span class="line">  本站总访问量<span class="tag">&lt;<span class="name">span</span> <span class="attr">id</span>=<span class="string">"busuanzi_value_site_pv"</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span>次</span><br><span class="line"><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
-</li>
-</ul>
+<h4 id="Hexo-博客搭建-🐬"><a href="#Hexo-博客搭建-🐬" class="headerlink" title="Hexo 博客搭建 🐬"></a>Hexo 博客搭建 🐬</h4><p>下载安装 Git</p>
+<p>下载NodeJS客户端，某些版本可能与npm存在兼容性的问题，可通过下命令查看版本。<br><figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">node</span> <span class="title">-v</span></span><br></pre></td></tr></table></figure></p>
+<p>安装 hexo<br><figure class="highlight avrasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g hexo-<span class="keyword">cli</span></span><br></pre></td></tr></table></figure></p>
+<p>初始化 Hexo, 创建个人文件夹 Hexo, 在 Hexo 文件夹内，右键运行 Git Bash, 输入命令<br><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">hexo init</span></span><br></pre></td></tr></table></figure></p>
+<p>基础配置 _config.yml</p>
+<p>本地浏览博客, 输入下面命令并在浏览器打开 localhost:4000<br><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">hexo g</span></span><br><span class="line"><span class="attribute">hexo s</span></span><br></pre></td></tr></table></figure></p>
+<h4 id="发布到-GitHub-🐬"><a href="#发布到-GitHub-🐬" class="headerlink" title="发布到 GitHub 🐬"></a>发布到 GitHub 🐬</h4><p>设置 Git 的 user name 和 email<br><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git<span class="built_in"> config </span>--global user.name <span class="string">"yourname"</span></span><br><span class="line">git<span class="built_in"> config </span>--global user.email <span class="string">"your email"</span></span><br></pre></td></tr></table></figure></p>
+<p>生成密钥<br><figure class="highlight excel"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -<span class="built_in">t</span> rsa -C <span class="string">"youremail"</span> -f your_file</span><br></pre></td></tr></table></figure></p>
+<p>添加公钥（publickey）至 GitHub。登录 GitHub，进入个人设置 settings -&gt; ssh and gpg keys -&gt; new ssh key，添加新生成的公钥。<br>测试是否连接成功<br><figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">ssh</span> -T git<span class="variable">@github</span>.com</span><br></pre></td></tr></table></figure></p>
+<p>一般在添加公钥之后，可能会遇到下面的问题：<br><figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">**Host key verification failed.**</span><br><span class="line">fatal: Could <span class="keyword">not</span> <span class="built_in">read</span> <span class="keyword">from</span> remote repository.</span><br></pre></td></tr></table></figure></p>
+<p>这是由于.ssh文件夹缺少了 known_hosts 文件，输入以下命令：<br><figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">ssh</span> git<span class="variable">@github</span>.com</span><br></pre></td></tr></table></figure></p>
+<p>部署<br><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">hexo d</span></span><br></pre></td></tr></table></figure></p>
+<h4 id="添加访问统计-🐬"><a href="#添加访问统计-🐬" class="headerlink" title="添加访问统计 🐬"></a>添加访问统计 🐬</h4><p>修改配置文件 /themes/xxx/layout/_partial/sidebar.ejs.<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"linkslist"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">span</span> <span class="attr">id</span>=<span class="string">"busuanzi_container_site_uv"</span>&gt;</span></span><br><span class="line">  本站访客数<span class="tag">&lt;<span class="name">span</span> <span class="attr">id</span>=<span class="string">"busuanzi_value_site_uv"</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span>人次</span><br><span class="line"><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"linkslist"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">span</span> <span class="attr">id</span>=<span class="string">"busuanzi_container_site_pv"</span>&gt;</span></span><br><span class="line">  本站总访问量<span class="tag">&lt;<span class="name">span</span> <span class="attr">id</span>=<span class="string">"busuanzi_value_site_pv"</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span>次</span><br><span class="line"><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
 <p><a href="http://shenzekun.cn/hexo%E7%9A%84next%E4%B8%BB%E9%A2%98%E4%B8%AA%E6%80%A7%E5%8C%96%E9%85%8D%E7%BD%AE%E6%95%99%E7%A8%8B.html" target="_blank" rel="noopener">更多炫酷的主题个性化</a></p>
-</li>
-<li><p>文章按照更新时间排序</p>
-<ul>
-<li>打开配置文件 _config.yml，然后修改或者添加 index_generator 的 order_by 为 -updated：<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">index\<span class="string">_generator:</span></span><br><span class="line"><span class="symbol">  path:</span> <span class="string">''</span></span><br><span class="line">  per\<span class="string">_page:</span> <span class="number">10</span></span><br><span class="line">  order\<span class="string">_by:</span> -updated</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-</li>
+<h4 id="文章按照更新时间排序-🐬"><a href="#文章按照更新时间排序-🐬" class="headerlink" title="文章按照更新时间排序 🐬"></a>文章按照更新时间排序 🐬</h4><p>打开配置文件 _config.yml，然后修改或者添加 index_generator 的 order_by 为 -updated：<br><figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">index\<span class="string">_generator:</span></span><br><span class="line"><span class="symbol">  path:</span> <span class="string">''</span></span><br><span class="line">  per\<span class="string">_page:</span> <span class="number">10</span></span><br><span class="line">  order\<span class="string">_by:</span> -updated</span><br></pre></td></tr></table></figure></p>
+<h4 id="发布新文章-🐬"><a href="#发布新文章-🐬" class="headerlink" title="发布新文章 🐬"></a>发布新文章 🐬</h4><p>执行 new 命令，生成指定名称的文章至 hexo\source\_posts\postName.md<br><figure class="highlight haxe"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo <span class="keyword">new</span> <span class="type"></span>[layout] <span class="string">"postName"</span></span><br></pre></td></tr></table></figure></p>
+<p>其中 layout 为可选参数，默认值为 post。可在 scaffolds 目录查看 layout 的名称。可以添加自己的 layout 或者修改已有的 layout。</p>
+<p>新文件的开头是属性，采用统一的 yaml 格式，用三段横线分隔。 可以直接修改 title（标题名字）、 date（时间）等。 description 是文章概要，该项为空时hexo默认在首页会显示全部文章内容，如果文章比较长就会显的内容很乱；写让该项后hexo会显示摘要和“阅读全文”连接。下面是文章正文。<br><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">title:</span> <span class="string">postName</span> <span class="comment">#文章页面上的显示名称，可以任意修改，不会出现在URL中</span></span><br><span class="line"><span class="attr">date:</span> <span class="number">2013</span><span class="number">-12</span><span class="number">-02</span> <span class="number">15</span><span class="string">:30:16</span> <span class="comment">#文章生成时间，一般不改，当然也可以任意修改</span></span><br><span class="line"><span class="attr">categories:</span> <span class="comment">#文章分类目录，可以为空，注意:后面有个空格， 用格式</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">[tag1,tag2]</span></span><br><span class="line"><span class="attr">tags:</span> <span class="comment">#文章标签，可空，多标签请用格式[tag1,tag2,tag3]，注意:后面有个空格</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">tag1</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">tag2</span></span><br><span class="line"><span class="attr">description:</span> <span class="comment">#概要信息</span></span><br><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="string">正文。</span></span><br></pre></td></tr></table></figure></p>
+<h4 id="存草稿-🐬"><a href="#存草稿-🐬" class="headerlink" title="存草稿 🐬"></a>存草稿 🐬</h4><p>草稿默认不会显示在页面上，会在 source/_drafts 目录下生成一个 new-draft.md 文件。<br><figure class="highlight haxe"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo <span class="keyword">new</span> <span class="type">draft</span> <span class="string">"new draft"</span></span><br></pre></td></tr></table></figure></p>
+<p>如果要预览草稿，可<br>1.更改配置文件（_config.yml） render_drafts: true<br>2.或者如下方式启动 server： hexo server –drafts<br>下面这条命令可以把草稿变成文章，或者页面：<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo publish [layout] <span class="tag">&lt;<span class="name">filename</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<h4 id="To-Fix-Some-Bugs-🐬"><a href="#To-Fix-Some-Bugs-🐬" class="headerlink" title="To Fix Some Bugs  🐬"></a>To Fix Some Bugs  🐬</h4><ul>
 <li><p>hexo s 命令失效<br>某人将 hexo 整个文件夹上传到 GitHub 服务器，在另一台电脑下载下来，运行 hexo s 命令失效，从显示信息得知，不存在该命令。这可能是由于 Hexo3 将 hexo-server 独立出来，如果需要本地调试，需要先安装 server。</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm <span class="keyword">install</span> hexo-<span class="keyword">server</span> <span class="comment">--save</span></span><br><span class="line">npm <span class="keyword">install</span></span><br></pre></td></tr></table></figure>
 <p>重新生成静态文档，启动本地服务。如果出现网页空白，并且命令行显示：</p>
@@ -283,311 +396,400 @@
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm <span class="keyword">install</span> <span class="comment">--save</span></span><br></pre></td></tr></table></figure>
 <p><a href="https://hexo.imydl.tech/archives/51612.html" target="_blank" rel="noopener">Hexo 博客及环境依赖包的正确升级方法</a></p>
 </li>
-<li><p>发布新文章</p>
-<p>执行 new 命令，生成指定名称的文章至 hexo\source\_posts\postName.md</p>
-<figure class="highlight haxe"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo <span class="keyword">new</span> <span class="type"></span>[layout] <span class="string">"postName"</span></span><br></pre></td></tr></table></figure>
-<p>其中 layout 为可选参数，默认值为 post。可在 scaffolds 目录查看 layout 的名称。可以添加自己的 layout 或者修改已有的 layout。</p>
-<p>新文件的开头是属性，采用统一的 yaml 格式，用三段横线分隔。 可以直接修改 title（标题名字）、 date（时间）等。 description 是文章概要，该项为空时hexo默认在首页会显示全部文章内容，如果文章比较长就会显的内容很乱；写让该项后hexo会显示摘要和“阅读全文”连接。下面是文章正文。</p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">title:</span> <span class="string">postName</span> <span class="comment">#文章页面上的显示名称，可以任意修改，不会出现在URL中</span></span><br><span class="line"><span class="attr">date:</span> <span class="number">2013</span><span class="number">-12</span><span class="number">-02</span> <span class="number">15</span><span class="string">:30:16</span> <span class="comment">#文章生成时间，一般不改，当然也可以任意修改</span></span><br><span class="line"><span class="attr">categories:</span> <span class="comment">#文章分类目录，可以为空，注意:后面有个空格， 用格式</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">[tag1,tag2]</span></span><br><span class="line"><span class="attr">tags:</span> <span class="comment">#文章标签，可空，多标签请用格式[tag1,tag2,tag3]，注意:后面有个空格</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">tag1</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">tag2</span></span><br><span class="line"><span class="attr">description:</span> <span class="comment">#概要信息</span></span><br><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="string">正文。</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>草稿</p>
-<p>草稿默认不会显示在页面上，会在 source/_drafts 目录下生成一个 new-draft.md 文件。</p>
-<figure class="highlight haxe"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo <span class="keyword">new</span> <span class="type">draft</span> <span class="string">"new draft"</span></span><br></pre></td></tr></table></figure>
-<p>如果要预览草稿，可</p>
-<ol>
-<li>更改配置文件（_config.yml） render_drafts: true</li>
-<li>或者如下方式启动 server： hexo server –drafts<br>下面这条命令可以把草稿变成文章，或者页面：<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo publish [layout] <span class="tag">&lt;<span class="name">filename</span>&gt;</span></span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-</li>
 </ul>
-<hr>
-<p><font color="blue">后记</font>🐬</p>
-<p>—— Bourne 后记于 2020.07</p>
+<p>–</p>
+
+      
+    </div>
+    
+    
+    
+   
+    
+    	<div style="text-align:center;color: #ccc;font-size:14px;">
+		---------Thanks for your attention---------
+	</div>
+    
 
 
-                <hr>
+    
 
+    
+
+    
+
+   
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/bourne-x.github.io/tags/hexo/" rel="tag"><iclass="fa fa-tag"> hexo</iclass="fa></a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/bourne-x.github.io/images/yub.jpg" alt="Bourne">
+            
+              <p class="site-author-name" itemprop="name">Bourne</p>
+              <p class="site-description motion-element" itemprop="description">To Be A Lean One</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/bourne-x.github.io/archives/">
+              
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
                 
-
-                <ul class="pager">
-                    
-                    
-                </ul>
-
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">categories</span>
                 
+              </div>
+            
 
+            
+              
+              
+              <div class="site-state-item site-state-tags">
                 
-                <!-- disqus 评论框 start -->
-                <div class="comment">
-                    <div id="disqus_thread" class="disqus-thread"></div>
-                </div>
-                <!-- disqus 评论框 end -->
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">tags</span>
                 
+              </div>
+            
 
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/bourne-x" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:yubin.thu@gmail.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://linkedin.com/in/yubin-li-588592a2/" target="_blank" title="Linkedin">
+                      
+                        <i class="fa fa-fw fa-linkedin"></i>Linkedin</a>
+                  </span>
+                
             </div>
-    <!-- Side Catalog Container -->
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#Hexo-博客搭建-🐬"><span class="nav-number">1.</span> <span class="nav-text">Hexo 博客搭建 🐬</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#发布到-GitHub-🐬"><span class="nav-number">2.</span> <span class="nav-text">发布到 GitHub 🐬</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#添加访问统计-🐬"><span class="nav-number">3.</span> <span class="nav-text">添加访问统计 🐬</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#文章按照更新时间排序-🐬"><span class="nav-number">4.</span> <span class="nav-text">文章按照更新时间排序 🐬</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#发布新文章-🐬"><span class="nav-number">5.</span> <span class="nav-text">发布新文章 🐬</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#存草稿-🐬"><span class="nav-number">6.</span> <span class="nav-text">存草稿 🐬</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#To-Fix-Some-Bugs-🐬"><span class="nav-number">7.</span> <span class="nav-text">To Fix Some Bugs  🐬</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Bourne</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
+
+
+
+
         
 
-    <!-- Sidebar Container -->
-
-            <div class="
-                col-lg-8 col-lg-offset-2
-                col-md-10 col-md-offset-1
-                sidebar-container">
-
-                <!-- Featured Tags -->
-                
-                <section>
-                    <!-- no hr -->
-                    <h5><a href="/bourne-x.github.io/tags/">FEATURED TAGS</a></h5>
-                    <div class="tags">
-                       
-                          <a class="tag" href="/bourne-x.github.io/tags/#hexo" title="hexo">hexo</a>
-                        
-                          <a class="tag" href="/bourne-x.github.io/tags/#life" title="life">life</a>
-                        
-                    </div>
-                </section>
-                
-
-                <!-- Friends Blog -->
-                
-                <hr>
-                <h5>FRIENDS</h5>
-                <ul class="list-inline">
-
-                    
-                        <li><a href="http://blog.kaijun.rocks" target="_blank">Kaijun&#39;s Blog</a></li>
-                    
-                        <li><a href="http://huangxuan.me" target="_blank">Hux Blog</a></li>
-                    
-                        <li><a href="#" target="_blank">Foo</a></li>
-                    
-                        <li><a href="#" target="_blank">Bar</a></li>
-                    
-                        <li><a href="#" target="_blank">Example Friends</a></li>
-                    
-                        <li><a href="#" target="_blank">It helps SEO</a></li>
-                    
-                </ul>
-                
-            </div>
-
-        </div>
-    </div>
-</article>
 
 
 
 
-<!-- disqus 公共JS代码 start (一个网页只需插入一次) -->
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
 <script type="text/javascript">
-    /* * * CONFIGURATION VARIABLES * * */
-    var disqus_shortname = "hexo-theme-huxblog";
-    var disqus_identifier = "http://epochs.me/2020/07/24/notes_collection/2020-07-24-hello-world/";
-    var disqus_url = "http://epochs.me/2020/07/24/notes_collection/2020-07-24-hello-world/";
-
-    (function() {
-        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    })();
-</script>
-<!-- disqus 公共JS代码 end -->
-
-
-
-
-<!-- async load function -->
-<script>
-    function async(u, c) {
-      var d = document, t = 'script',
-          o = d.createElement(t),
-          s = d.getElementsByTagName(t)[0];
-      o.src = u;
-      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
-      s.parentNode.insertBefore(o, s);
-    }
-</script>
-<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
-<script>
-    async("https://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js",function(){
-        anchors.options = {
-          visible: 'always',
-          placement: 'right',
-          icon: '#'
-        };
-        anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
-    })
-</script>
-<style>
-    /* place left on bigger screen */
-    @media all and (min-width: 800px) {
-        .anchorjs-link{
-            position: absolute;
-            left: -0.75em;
-            font-size: 1.1em;
-            margin-top : -0.1em;
-        }
-    }
-</style>
-
-
-
-    <!-- Footer -->
-    <!-- Footer -->
-<footer>
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <ul class="list-inline text-center">
-                
-                
-                
-
-                
-                    <li>
-                        <a target="_blank" href="http://weibo.com/Bourne-me">
-                            <span class="fa-stack fa-lg">
-                                <i class="fa fa-circle fa-stack-2x"></i>
-                                <i class="fa fa-weibo fa-stack-1x fa-inverse"></i>
-                            </span>
-                        </a>
-                    </li>
-                
-
-                
-
-                
-                    <li>
-                        <a target="_blank"  href="https://github.com/bourne-x">
-                            <span class="fa-stack fa-lg">
-                                <i class="fa fa-circle fa-stack-2x"></i>
-                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
-                            </span>
-                        </a>
-                    </li>
-                
-
-                
-
-                </ul>
-                <p class="copyright text-muted">
-                    Copyright &copy; KISS 2020 
-                    <br>
-                    Theme by <a href="http://huangxuan.me">Hux</a> 
-                    <span style="display: inline-block; margin: 0 5px;">
-                        <i class="fa fa-heart"></i>
-                    </span> 
-                    Ported by <a href="http://blog.kaijun.rocks">Kaijun</a> | 
-                    <iframe
-                        style="margin-left: 2px; margin-bottom:-5px;"
-                        frameborder="0" scrolling="0" width="91px" height="20px"
-                        src="https://ghbtns.com/github-btn.html?user=kaijun&repo=hexo-theme-huxblog&type=star&count=true" >
-                    </iframe>
-                </p>
-            </div>
-        </div>
-    </div>
-</footer>
-
-<!-- jQuery -->
-<script src="/bourne-x.github.io/js/jquery.min.js"></script>
-
-<!-- Bootstrap Core JavaScript -->
-<script src="/bourne-x.github.io/js/bootstrap.min.js"></script>
-
-<!-- Custom Theme JavaScript -->
-<script src="/bourne-x.github.io/js/hux-blog.min.js"></script>
-
-
-<!-- async load function -->
-<script>
-    function async(u, c) {
-      var d = document, t = 'script',
-          o = d.createElement(t),
-          s = d.getElementsByTagName(t)[0];
-      o.src = u;
-      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
-      s.parentNode.insertBefore(o, s);
-    }
-</script>
-
-<!-- 
-     Because of the native support for backtick-style fenced code blocks 
-     right within the Markdown is landed in Github Pages, 
-     From V1.6, There is no need for Highlight.js, 
-     so Huxblog drops it officially.
-
-     - https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0  
-     - https://help.github.com/articles/creating-and-highlighting-code-blocks/    
--->
-<!--
-    <script>
-        async("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function(){
-            hljs.initHighlightingOnLoad();
-        })
-    </script>
-    <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet">
--->
-
-
-<!-- jquery.tagcloud.js -->
-<script>
-    // only load tagcloud.js in tag.html
-    if($('#tag_cloud').length !== 0){
-        async("http://epochs.me/bourne-x.github.io/js/jquery.tagcloud.js",function(){
-            $.fn.tagcloud.defaults = {
-                //size: {start: 1, end: 1, unit: 'em'},
-                color: {start: '#bbbbee', end: '#0085a1'},
-            };
-            $('#tag_cloud a').tagcloud();
-        })
-    }
-</script>
-
-<!--fastClick.js -->
-<script>
-    async("https://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
-        var $nav = document.querySelector("nav");
-        if($nav) FastClick.attach($nav);
-    })
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
 </script>
 
 
-<!-- Google Analytics -->
-
-
-
-
-<!-- Baidu Tongji -->
-
-<script>
-    // dynamic User by Hux
-    var _baId = '4cc1f2d8f3067386cc5cdb626a202900';
-
-    // Originial
-    var _hmt = _hmt || [];
-    (function() {
-      var hm = document.createElement("script");
-      hm.src = "//hm.baidu.com/hm.js?" + _baId;
-      var s = document.getElementsByTagName("script")[0];
-      s.parentNode.insertBefore(hm, s);
-    })();
-</script>
-
-
-<!-- Side Catalog -->
 
 
 
 
 
-<!-- Image to hack wechat -->
-<img src="http://epochs.me/bourne-x.github.io/img/icon_wechat.png" width="0" height="0" />
-<!-- Migrate from head to bottom, no longer block render and still work -->
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/bourne-x.github.io/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/bourne-x.github.io/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/bourne-x.github.io/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/bourne-x.github.io/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/bourne-x.github.io/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/bourne-x.github.io/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/bourne-x.github.io/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/bourne-x.github.io/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/bourne-x.github.io/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/bourne-x.github.io/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/bourne-x.github.io/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
 
 </body>
-
 </html>
