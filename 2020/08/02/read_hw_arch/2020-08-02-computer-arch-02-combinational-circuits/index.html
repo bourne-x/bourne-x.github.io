@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="Arch (体系结构),Digital (数字逻辑),笔记,">
 
 
 
@@ -79,17 +79,18 @@
 
 
 
-<meta name="description" content="你来到了没有知识的荒原 :(">
-<meta property="og:type" content="website">
-<meta property="og:title" content="KISS">
-<meta property="og:url" content="http://epochs.me/404.html">
+<meta name="description" content="The Game PlanI am studying the course with the beginning of digital logic gates that accept 1’s and 0’s as inputs and produce 1’s and 0’s as outputs. Then explore how to combine logic gates into more">
+<meta name="keywords" content="Arch (体系结构),Digital (数字逻辑),笔记">
+<meta property="og:type" content="article">
+<meta property="og:title" content="「HW-ARCH」2 Combinational Circuits">
+<meta property="og:url" content="http://epochs.me/2020/08/02/read_hw_arch/2020-08-02-computer-arch-02-combinational-circuits/index.html">
 <meta property="og:site_name" content="KISS">
-<meta property="og:description" content="你来到了没有知识的荒原 :(">
+<meta property="og:description" content="The Game PlanI am studying the course with the beginning of digital logic gates that accept 1’s and 0’s as inputs and produce 1’s and 0’s as outputs. Then explore how to combine logic gates into more">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2020-07-21T18:58:17.473Z">
+<meta property="og:updated_time" content="2020-08-01T15:41:38.989Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="KISS">
-<meta name="twitter:description" content="你来到了没有知识的荒原 :(">
+<meta name="twitter:title" content="「HW-ARCH」2 Combinational Circuits">
+<meta name="twitter:description" content="The Game PlanI am studying the course with the beginning of digital logic gates that accept 1’s and 0’s as inputs and produce 1’s and 0’s as outputs. Then explore how to combine logic gates into more">
 
 
 
@@ -119,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://epochs.me/404.html">
+  <link rel="canonical" href="http://epochs.me/2020/08/02/read_hw_arch/2020-08-02-computer-arch-02-combinational-circuits/">
 
 
 
 
 
-  <title> | KISS</title>
+  <title>「HW-ARCH」2 Combinational Circuits | KISS</title>
   
 
 
@@ -250,37 +251,227 @@
 
   <div id="posts" class="posts-expand">
     
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://epochs.me/bourne-x.github.io/2020/08/02/read_hw_arch/2020-08-02-computer-arch-02-combinational-circuits/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Bourne">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/bourne-x.github.io/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="KISS">
+    </span>
+
     
-    
-    <div class="post-block page">
       <header class="post-header">
 
-	<h1 class="post-title" itemprop="name headline"></h1>
-
-
-	<div class="post-meta">
-		<div class="post-description">你来到了没有知识的荒原 :(</div>
-	</div>
-
-
-</header>
-
-      
-      
-      
-      <div class="post-body">
         
         
+          <h1 class="post-title" itemprop="name headline">「HW-ARCH」2 Combinational Circuits</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-08-02T12:00:00+08:00">
+                2020-08-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
           
-        
-      </div>
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/bourne-x.github.io/categories/Computer-Architecture/" itemprop="url" rel="index">
+                    <span itemprop="name">Computer Architecture</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
       
       
+
+      
+        <h3 id="The-Game-Plan"><a href="#The-Game-Plan" class="headerlink" title="The Game Plan"></a>The Game Plan</h3><p>I am studying the course with the beginning of digital logic gates that accept 1’s and 0’s as inputs and produce 1’s and 0’s as outputs. Then explore how to combine logic gates into more complicated modules such as adders and memories. Then shift gears to programming in assembly language, that native tongure of the microprocessor. Finally, put together to build a microprocessor that runs these assembly language programs.<br>A great advantage of digital systems is that the building blocks are quite simple: just 1’s and 0’s. The designer’s challenge is to combine these simple blocks into complicated systems. One of the major task is to learn <font color="#008000">how to manage complexity</font>.</p>
+<a id="more"></a>
+<h3 id="The-Art-of-Managing-Complexity"><a href="#The-Art-of-Managing-Complexity" class="headerlink" title="The Art of Managing Complexity"></a>The Art of Managing Complexity</h3><ul>
+<li><font color="#008000">Abstraction</font>: hiding details when they are not important. The critical technique for managing complexity. Levels of abstraction for an electronic computing system are <ul>
+<li>Application Software (Programs)</li>
+<li>Operating Systems (Devices, Drivers)</li>
+<li>Architecture (Instructions, Registers): describe a computer from the programmer’s perspective.</li>
+<li>Microarchitecture (Datapaths, Controllers) </li>
+<li>Logic (Adders, Memories) </li>
+<li>Digital Circuits (AND Gates, NOT Gates) </li>
+<li>Analog Circuits (Amplifiers, Filters) </li>
+<li>Devices (Transistors, Diodes) </li>
+<li>Physics (Electrons) </li>
+</ul>
+</li>
+<li><font color="#008000">Discipline</font>: the act of intentionally restricting your design choices so that you can work more productively at a higher level of abstraction. Using interchageable parts is a familiar application of discipline. </li>
+<li><font color="#008000">The Three-Y’s</font>: hierarchy, modularity, and regularity.<ul>
+<li>Hierarchy involves dividing a system into modules, then further sub-dividing each of these modules until the pieces are easy to understand.</li>
+<li>Modularity states that the modules have well-defined functions and interfaces, so that they connect together easily without unanticipated side affects.</li>
+<li>Regulairy seeks uniformity among the modules. Common modules are reused many times, reducing the number of distinct modules that must be designed.</li>
+</ul>
+</li>
+</ul>
+<h3 id="The-Digital-Abstraction"><a href="#The-Digital-Abstraction" class="headerlink" title="The Digital Abstraction"></a>The Digital Abstraction</h3><ul>
+<li>Digital systems represent information with discrete-valued variables.</li>
+<li>Boolean logic: a system of logic operationg on binary variables.</li>
+</ul>
+<h3 id="Number-Systems"><a href="#Number-Systems" class="headerlink" title="Number Systems"></a>Number Systems</h3><ul>
+<li>Decimal Numbers</li>
+<li>Binary Numbers</li>
+<li>Hexadecimal Numbers</li>
+<li>Bytes, Nibbles, and All That Jazz<ul>
+<li>Nibble: a group of 4 bits, or half a byte.</li>
+</ul>
+</li>
+<li>Signed Binay Number Systems: sign/magnitude and two’s complement.</li>
+</ul>
+<h3 id="Logic-Gates"><a href="#Logic-Gates" class="headerlink" title="Logic Gates"></a>Logic Gates</h3><ul>
+<li>NOT Gate (inverter)</li>
+<li>Buffer</li>
+<li>AND Gate</li>
+<li>OR Gate</li>
+<li>XOR Gate</li>
+<li>NAND Gate</li>
+<li>NOR Gate</li>
+</ul>
+
       
     </div>
     
     
     
+   
+    
+    	<div style="text-align:center;color: #ccc;font-size:14px;">
+		---------Thanks for your attention---------
+	</div>
+    
+
+
+    
+
+    
+
+    
+
+   
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/bourne-x.github.io/tags/Arch-体系结构/" rel="tag"><iclass="fa fa-tag"> Arch (体系结构)</iclass="fa></a>
+          
+            <a href="/bourne-x.github.io/tags/Digital-数字逻辑/" rel="tag"><iclass="fa fa-tag"> Digital (数字逻辑)</iclass="fa></a>
+          
+            <a href="/bourne-x.github.io/tags/笔记/" rel="tag"><iclass="fa fa-tag"> 笔记</iclass="fa></a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/bourne-x.github.io/2020/07/30/read_hw_arch/2020-07-30-computer-arch-01-hello/" rel="next" title="「HW-ARCH」1 From Zero to One">
+                <i class="fa fa-chevron-left"></i> 「HW-ARCH」1 From Zero to One
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/bourne-x.github.io/2021/01/11/read_systemverilog_verification/2021-01-11-sv4v-01-introduction/" rel="prev" title="「SV4V」1 Introduction">
+                「SV4V」1 Introduction <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
   </div>
 
 
@@ -313,8 +504,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -398,6 +598,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#The-Game-Plan"><span class="nav-number">1.</span> <span class="nav-text">The Game Plan</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#The-Art-of-Managing-Complexity"><span class="nav-number">2.</span> <span class="nav-text">The Art of Managing Complexity</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#The-Digital-Abstraction"><span class="nav-number">3.</span> <span class="nav-text">The Digital Abstraction</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Number-Systems"><span class="nav-number">4.</span> <span class="nav-text">Number Systems</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Logic-Gates"><span class="nav-number">5.</span> <span class="nav-text">Logic Gates</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       

@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="笔记,Verification (验证),System Verilog (HVL),">
 
 
 
@@ -79,17 +79,18 @@
 
 
 
-<meta name="description" content="To Be A Lean One">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Tags">
-<meta property="og:url" content="http://epochs.me/tags/index.html">
+<meta name="description" content="System Verilog新的数据类型  双状态数据类型：更好的性能，更低的内存消耗 队列、动态和关联数组：减少内存消耗，支持搜索和分类功能 类和结构：支持抽象数据结构 联合和合并结构：对同一数据有多种视图（view） 字符串：支持内建的字符序列 枚举类型：增加可读性">
+<meta name="keywords" content="笔记,Verification (验证),System Verilog (HVL)">
+<meta property="og:type" content="article">
+<meta property="og:title" content="「SV4V」2 Data Structure">
+<meta property="og:url" content="http://epochs.me/2021/01/12/read_systemverilog_verification/2021-01-11-sv4v-02-data-structure/index.html">
 <meta property="og:site_name" content="KISS">
-<meta property="og:description" content="To Be A Lean One">
+<meta property="og:description" content="System Verilog新的数据类型  双状态数据类型：更好的性能，更低的内存消耗 队列、动态和关联数组：减少内存消耗，支持搜索和分类功能 类和结构：支持抽象数据结构 联合和合并结构：对同一数据有多种视图（view） 字符串：支持内建的字符序列 枚举类型：增加可读性">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2020-07-26T11:32:52.249Z">
+<meta property="og:updated_time" content="2021-01-11T16:17:27.132Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Tags">
-<meta name="twitter:description" content="To Be A Lean One">
+<meta name="twitter:title" content="「SV4V」2 Data Structure">
+<meta name="twitter:description" content="System Verilog新的数据类型  双状态数据类型：更好的性能，更低的内存消耗 队列、动态和关联数组：减少内存消耗，支持搜索和分类功能 类和结构：支持抽象数据结构 联合和合并结构：对同一数据有多种视图（view） 字符串：支持内建的字符序列 枚举类型：增加可读性">
 
 
 
@@ -119,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://epochs.me/tags/">
+  <link rel="canonical" href="http://epochs.me/2021/01/12/read_systemverilog_verification/2021-01-11-sv4v-02-data-structure/">
 
 
 
 
 
-  <title>Tags | KISS</title>
+  <title>「SV4V」2 Data Structure | KISS</title>
   
 
 
@@ -250,40 +251,200 @@
 
   <div id="posts" class="posts-expand">
     
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://epochs.me/bourne-x.github.io/2021/01/12/read_systemverilog_verification/2021-01-11-sv4v-02-data-structure/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Bourne">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/bourne-x.github.io/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="KISS">
+    </span>
+
     
-    
-    <div class="post-block page">
       <header class="post-header">
 
-	<h1 class="post-title" itemprop="name headline">Tags</h1>
-
-
-
-</header>
-
-      
-      
-      
-      <div class="post-body">
         
         
-          <div class="tag-cloud">
-            <div class="tag-cloud-title">
-                6 tags in total
-            </div>
-            <div class="tag-cloud-tags">
-              <a href="/bourne-x.github.io/tags/Arch-体系结构/" style="font-size: 12px; color: #ccc">Arch (体系结构)</a> <a href="/bourne-x.github.io/tags/Digital-数字逻辑/" style="font-size: 12px; color: #ccc">Digital (数字逻辑)</a> <a href="/bourne-x.github.io/tags/System-Verilog-HVL/" style="font-size: 12px; color: #ccc">System Verilog (HVL)</a> <a href="/bourne-x.github.io/tags/Verification-验证/" style="font-size: 12px; color: #ccc">Verification (验证)</a> <a href="/bourne-x.github.io/tags/hexo/" style="font-size: 12px; color: #ccc">hexo</a> <a href="/bourne-x.github.io/tags/笔记/" style="font-size: 30px; color: #111">笔记</a>
-            </div>
-          </div>
+          <h1 class="post-title" itemprop="name headline">「SV4V」2 Data Structure</h1>
         
-      </div>
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2021-01-12T12:00:00+08:00">
+                2021-01-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/bourne-x.github.io/categories/Verification/" itemprop="url" rel="index">
+                    <span itemprop="name">Verification</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
       
       
+
+      
+        <p>System Verilog新的数据类型</p>
+<ul>
+<li>双状态数据类型：更好的性能，更低的内存消耗</li>
+<li>队列、动态和关联数组：减少内存消耗，支持搜索和分类功能</li>
+<li>类和结构：支持抽象数据结构</li>
+<li>联合和合并结构：对同一数据有多种视图（view）</li>
+<li>字符串：支持内建的字符序列</li>
+<li>枚举类型：增加可读性</li>
+</ul>
+<a id="more"></a>
+<p>内建数据类型</p>
+<ul>
+<li>四状态数据类型：0，1，Z，X<ul>
+<li>变量（reg）、线网（wire）</li>
+<li>逻辑（logic）类型</li>
+</ul>
+</li>
+<li>双状态数据类型：0，1<ul>
+<li>bit，byte，shortint，int，longint，real</li>
+</ul>
+</li>
+</ul>
+<p>定宽数组</p>
+
       
     </div>
     
     
     
+   
+    
+    	<div style="text-align:center;color: #ccc;font-size:14px;">
+		---------Thanks for your attention---------
+	</div>
+    
+
+
+    
+
+    
+
+    
+
+   
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/bourne-x.github.io/tags/笔记/" rel="tag"><iclass="fa fa-tag"> 笔记</iclass="fa></a>
+          
+            <a href="/bourne-x.github.io/tags/Verification-验证/" rel="tag"><iclass="fa fa-tag"> Verification (验证)</iclass="fa></a>
+          
+            <a href="/bourne-x.github.io/tags/System-Verilog-HVL/" rel="tag"><iclass="fa fa-tag"> System Verilog (HVL)</iclass="fa></a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/bourne-x.github.io/2021/01/11/read_systemverilog_verification/2021-01-11-sv4v-01-introduction/" rel="next" title="「SV4V」1 Introduction">
+                <i class="fa fa-chevron-left"></i> 「SV4V」1 Introduction
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
   </div>
 
 

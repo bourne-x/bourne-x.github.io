@@ -1,0 +1,823 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/bourne-x.github.io/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/bourne-x.github.io/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/bourne-x.github.io/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/bourne-x.github.io/images/yub.jpg?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/bourne-x.github.io/images/yub.jpg?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/bourne-x.github.io/images/yub.jpg?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/bourne-x.github.io/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Arch (体系结构),Digital (数字逻辑),笔记,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="The Game PlanI am studying the course with the beginning of digital logic gates that accept 1’s and 0’s as inputs and produce 1’s and 0’s as outputs. Then explore how to combine logic gates into more">
+<meta name="keywords" content="Arch (体系结构),Digital (数字逻辑),笔记">
+<meta property="og:type" content="article">
+<meta property="og:title" content="「HW-ARCH」1 From Zero to One">
+<meta property="og:url" content="http://epochs.me/2020/07/30/read_hw_arch/2020-07-30-computer-arch-01-hello/index.html">
+<meta property="og:site_name" content="KISS">
+<meta property="og:description" content="The Game PlanI am studying the course with the beginning of digital logic gates that accept 1’s and 0’s as inputs and produce 1’s and 0’s as outputs. Then explore how to combine logic gates into more">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="http://epochs.me/bourne-x.github.io/img/abstraction.JPG%22">
+<meta property="og:updated_time" content="2020-08-01T17:13:28.708Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="「HW-ARCH」1 From Zero to One">
+<meta name="twitter:description" content="The Game PlanI am studying the course with the beginning of digital logic gates that accept 1’s and 0’s as inputs and produce 1’s and 0’s as outputs. Then explore how to combine logic gates into more">
+<meta name="twitter:image" content="http://epochs.me/bourne-x.github.io/img/abstraction.JPG%22">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/bourne-x.github.io/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://epochs.me/2020/07/30/read_hw_arch/2020-07-30-computer-arch-01-hello/">
+
+
+
+
+
+  <title>「HW-ARCH」1 From Zero to One | KISS</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/bourne-x.github.io/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">KISS</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Simple & Stupid</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/bourne-x.github.io/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/bourne-x.github.io/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/bourne-x.github.io/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/bourne-x.github.io/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/bourne-x.github.io/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://epochs.me/bourne-x.github.io/2020/07/30/read_hw_arch/2020-07-30-computer-arch-01-hello/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Bourne">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/bourne-x.github.io/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="KISS">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">「HW-ARCH」1 From Zero to One</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-07-30T12:00:00+08:00">
+                2020-07-30
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/bourne-x.github.io/categories/Computer-Architecture/" itemprop="url" rel="index">
+                    <span itemprop="name">Computer Architecture</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="The-Game-Plan"><a href="#The-Game-Plan" class="headerlink" title="The Game Plan"></a>The Game Plan</h3><p>I am studying the course with the beginning of digital logic gates that accept 1’s and 0’s as inputs and produce 1’s and 0’s as outputs. Then explore how to combine logic gates into more complicated modules such as adders and memories. Then shift gears to programming in assembly language, that native tongure of the microprocessor. Finally, put together to build a microprocessor that runs these assembly language programs.</p>
+<a id="more"></a>
+<p>A great advantage of digital systems is that the building blocks are quite simple: just 1’s and 0’s. The designer’s challenge is to combine these simple blocks into complicated systems. One of the major task is to learn <font color="#008000">how to manage complexity</font>.</p>
+<h3 id="The-Art-of-Managing-Complexity"><a href="#The-Art-of-Managing-Complexity" class="headerlink" title="The Art of Managing Complexity"></a>The Art of Managing Complexity</h3><p><img src="/bourne-x.github.io/img/abstraction.JPG&quot;" alt></p>
+<ul>
+<li><font color="#008000">Abstraction</font>: hiding details when they are not important. The critical technique for managing complexity. Levels of abstraction for an electronic computing system are<ul>
+<li>Application Software (Programs)</li>
+<li>Operating Systems (Devices, Drivers)</li>
+<li>Architecture (Instructions, Registers): describe a computer from the programmer’s perspective.</li>
+<li>Microarchitecture (Datapaths, Controllers) </li>
+<li>Logic (Adders, Memories) </li>
+<li>Digital Circuits (AND Gates, NOT Gates) </li>
+<li>Analog Circuits (Amplifiers, Filters) </li>
+<li>Devices (Transistors, Diodes) </li>
+<li>Physics (Electrons) </li>
+</ul>
+</li>
+<li><font color="#008000">Discipline</font>: the act of intentionally restricting your design choices so that you can work more productively at a higher level of abstraction. Using interchageable parts is a familiar application of discipline. </li>
+<li><font color="#008000">The Three-Y’s</font>: hierarchy, modularity, and regularity.<ul>
+<li>Hierarchy involves dividing a system into modules, then further sub-dividing each of these modules until the pieces are easy to understand.</li>
+<li>Modularity states that the modules have well-defined functions and interfaces, so that they connect together easily without unanticipated side affects.</li>
+<li>Regulairy seeks uniformity among the modules. Common modules are reused many times, reducing the number of distinct modules that must be designed.</li>
+</ul>
+</li>
+</ul>
+<h3 id="The-Digital-Abstraction"><a href="#The-Digital-Abstraction" class="headerlink" title="The Digital Abstraction"></a>The Digital Abstraction</h3><ul>
+<li>Digital systems represent information with discrete-valued variables.</li>
+<li>Boolean logic: a system of logic operationg on binary variables.</li>
+</ul>
+<h3 id="Number-Systems"><a href="#Number-Systems" class="headerlink" title="Number Systems"></a>Number Systems</h3><ul>
+<li>Decimal Numbers</li>
+<li>Binary Numbers</li>
+<li>Hexadecimal Numbers</li>
+<li>Bytes, Nibbles, and All That Jazz<ul>
+<li>Nibble: a group of 4 bits, or half a byte.</li>
+</ul>
+</li>
+<li>Signed Binay Number Systems: sign/magnitude and two’s complement.</li>
+</ul>
+<h3 id="Logic-Gates"><a href="#Logic-Gates" class="headerlink" title="Logic Gates"></a>Logic Gates</h3><ul>
+<li>NOT Gate (inverter)</li>
+<li>Buffer</li>
+<li>AND Gate</li>
+<li>OR Gate</li>
+<li>XOR Gate</li>
+<li>NAND Gate</li>
+<li>NOR Gate</li>
+</ul>
+
+      
+    </div>
+    
+    
+    
+   
+    
+    	<div style="text-align:center;color: #ccc;font-size:14px;">
+		---------Thanks for your attention---------
+	</div>
+    
+
+
+    
+
+    
+
+    
+
+   
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/bourne-x.github.io/tags/Arch-体系结构/" rel="tag"><iclass="fa fa-tag"> Arch (体系结构)</iclass="fa></a>
+          
+            <a href="/bourne-x.github.io/tags/Digital-数字逻辑/" rel="tag"><iclass="fa fa-tag"> Digital (数字逻辑)</iclass="fa></a>
+          
+            <a href="/bourne-x.github.io/tags/笔记/" rel="tag"><iclass="fa fa-tag"> 笔记</iclass="fa></a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/bourne-x.github.io/2020/07/26/notes_collection/2020-07-26-hexo-markdown/" rel="next" title="「HEXO」Hexo 中 Markdown 语法">
+                <i class="fa fa-chevron-left"></i> 「HEXO」Hexo 中 Markdown 语法
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/bourne-x.github.io/2020/08/02/read_hw_arch/2020-08-02-computer-arch-02-combinational-circuits/" rel="prev" title="「HW-ARCH」2 Combinational Circuits">
+                「HW-ARCH」2 Combinational Circuits <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/bourne-x.github.io/images/avatar.gif" alt="Bourne">
+            
+              <p class="site-author-name" itemprop="name">Bourne</p>
+              <p class="site-description motion-element" itemprop="description">To Be A Lean One</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/bourne-x.github.io/archives/">
+              
+                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/bourne-x.github.io/categories/index.html">
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/bourne-x.github.io/tags/index.html">
+                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/bourne-x" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="Yub" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="Yub" target="_blank" title="Linkedin">
+                      
+                        <i class="fa fa-fw fa-linkedin"></i>Linkedin</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#The-Game-Plan"><span class="nav-number">1.</span> <span class="nav-text">The Game Plan</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#The-Art-of-Managing-Complexity"><span class="nav-number">2.</span> <span class="nav-text">The Art of Managing Complexity</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#The-Digital-Abstraction"><span class="nav-number">3.</span> <span class="nav-text">The Digital Abstraction</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Number-Systems"><span class="nav-number">4.</span> <span class="nav-text">Number Systems</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Logic-Gates"><span class="nav-number">5.</span> <span class="nav-text">Logic Gates</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Bourne</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/bourne-x.github.io/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/bourne-x.github.io/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/bourne-x.github.io/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/bourne-x.github.io/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/bourne-x.github.io/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/bourne-x.github.io/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/bourne-x.github.io/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/bourne-x.github.io/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/bourne-x.github.io/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/bourne-x.github.io/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/bourne-x.github.io/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
