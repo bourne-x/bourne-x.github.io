@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="KISS">
 <meta property="og:description" content="System Verilog新的数据类型  双状态数据类型：更好的性能，更低的内存消耗 队列、动态和关联数组：减少内存消耗，支持搜索和分类功能 类和结构：支持抽象数据结构 联合和合并结构：对同一数据有多种视图（view） 字符串：支持内建的字符序列 枚举类型：增加可读性">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2021-01-11T16:17:27.132Z">
+<meta property="og:updated_time" content="2021-01-12T16:26:58.921Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="「SV4V」2 Data Structure">
 <meta name="twitter:description" content="System Verilog新的数据类型  双状态数据类型：更好的性能，更低的内存消耗 队列、动态和关联数组：减少内存消耗，支持搜索和分类功能 类和结构：支持抽象数据结构 联合和合并结构：对同一数据有多种视图（view） 字符串：支持内建的字符序列 枚举类型：增加可读性">
@@ -362,19 +362,110 @@
 <li>枚举类型：增加可读性</li>
 </ul>
 <a id="more"></a>
-<p>内建数据类型</p>
+<ol>
+<li><p>内建数据类型</p>
 <ul>
 <li>四状态数据类型：0，1，Z，X<ul>
 <li>变量（reg）、线网（wire）</li>
 <li>逻辑（logic）类型</li>
-</ul>
-</li>
 <li>双状态数据类型：0，1<ul>
 <li>bit，byte，shortint，int，longint，real</li>
 </ul>
 </li>
 </ul>
-<p>定宽数组</p>
+</li>
+</ul>
+</li>
+<li><p>定宽数组</p>
+<ul>
+<li><p>声明</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">int lo_hi[0:15];</span><br><span class="line">int c_style[16];</span><br><span class="line">int array2[<span class="string">0:7</span>][<span class="symbol">0:3</span>];</span><br><span class="line">int c<span class="emphasis">_style_</span>array2[<span class="string">8</span>][<span class="symbol">4</span>];</span><br></pre></td></tr></table></figure>
+<p><strong>Note</strong>: System Verilog 仿真器在存放数组元素时使用32比特的字边界，byte、shortint、int存放在一个字中，longint存放到两个字中。</p>
+</li>
+<li><p>常量数组</p>
+<ul>
+<li><p>初始化：‘{ }</p>
+<figure class="highlight dust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="xml">int ascend[4] = '</span><span class="template-variable">&#123;0,1,2,3&#125;</span><span class="xml">;</span></span><br><span class="line"><span class="xml">int descend[5];</span></span><br><span class="line"><span class="xml">descend[0:2] = '</span><span class="template-variable">&#123;5,6,7&#125;</span><span class="xml">;</span></span><br><span class="line"><span class="xml">ascend = '</span><span class="template-variable">&#123;4&#123;8&#125;</span><span class="xml">&#125;;</span></span><br><span class="line"><span class="xml">descend = '</span><span class="template-variable">&#123;9,8,<span class="keyword">default</span>:1&#125;</span><span class="xml">;</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>基本数组操作：for，foreach</p>
+<ul>
+<li><p>一维数组</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">initial begin</span><br><span class="line">  bit [<span class="number">31</span>:<span class="number">0</span>] src[<span class="number">5</span>], dst[<span class="number">5</span>];</span><br><span class="line">  <span class="keyword">for</span> (int <span class="built_in">i</span>=<span class="number">0</span>; <span class="built_in">i</span>&lt;$<span class="built_in">size</span>(src);<span class="built_in">i</span>++)</span><br><span class="line">      src[<span class="built_in">i</span>] = <span class="built_in">i</span>;</span><br><span class="line">  foreach(dst[<span class="built_in">j</span>])</span><br><span class="line">      dst[<span class="built_in">j</span>] = src[<span class="built_in">j</span>] * <span class="number">2</span>;</span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>多维数组 md[i, j]</p>
+<figure class="highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> md[<span class="number">2</span>][<span class="number">3</span>] = '&#123;'&#123;<span class="number">0</span>,<span class="number">1</span>,<span class="number">2</span>&#125;,'&#123;<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>&#125;&#125;;</span><br><span class="line"><span class="keyword">initial</span> <span class="keyword">begin</span></span><br><span class="line">  <span class="keyword">foreach</span>(md[i,j])</span><br><span class="line">      <span class="built_in">$display</span>(<span class="string">"md[%0d][%0d]=%0d"</span>,i,j,md[i][j]);</span><br><span class="line">      </span><br><span class="line">  <span class="keyword">foreach</span>(md[i]) <span class="keyword">begin</span></span><br><span class="line">      <span class="built_in">$write</span>(<span class="string">"%2d:"</span>,i);</span><br><span class="line">      <span class="keyword">foreach</span>(md[,j])</span><br><span class="line">          <span class="built_in">$write</span>(<span class="string">"%3d"</span>, md[i][j]);</span><br><span class="line">      <span class="built_in">$display</span>;</span><br><span class="line">  <span class="keyword">end</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>基本数组操作：聚合复制，比较</p>
+<figure class="highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">initial</span> <span class="keyword">begin</span></span><br><span class="line">  <span class="keyword">bit</span> [<span class="number">31</span>:<span class="number">0</span>] src[<span class="number">5</span>] = '&#123;<span class="number">0</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>&#125;,</span><br><span class="line">             dst[<span class="number">5</span>] = '&#123;<span class="number">5</span>,<span class="number">4</span>,<span class="number">3</span>,<span class="number">2</span>,<span class="number">1</span>&#125;;</span><br><span class="line">  <span class="comment">// 聚合比较           </span></span><br><span class="line">  <span class="keyword">if</span> (src == dst)</span><br><span class="line">      <span class="built_in">$display</span>(<span class="string">"src == dst"</span>);</span><br><span class="line">  <span class="keyword">else</span></span><br><span class="line">      <span class="built_in">$display</span>(<span class="string">"src!=dst"</span>);</span><br><span class="line">  <span class="comment">// 聚合复制    </span></span><br><span class="line">  dst = src; </span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>同时使用位下标和数组下标 (Verilog-2001)</p>
+<figure class="highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">initial</span> <span class="keyword">begin</span></span><br><span class="line">  <span class="keyword">bit</span> [<span class="number">31</span>:<span class="number">0</span>] src[<span class="number">5</span>] = '&#123;<span class="number">5</span>&#123;<span class="number">5</span>&#125;&#125;;</span><br><span class="line">  <span class="built_in">$display</span>(src[<span class="number">0</span>],,        <span class="comment">// 'd5</span></span><br><span class="line">           src[<span class="number">0</span>][<span class="number">0</span>],,     <span class="comment">// 'b1</span></span><br><span class="line">           src[<span class="number">0</span>][<span class="number">2</span>:<span class="number">1</span>]);   <span class="comment">// 'b10</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>合并数组：存放方式是连续的bit集合</p>
+<ul>
+<li><p><strong>Principle 0</strong> <font color="red">合并的位和数组的大小是数据类型的一部分</font></p>
+</li>
+<li><p><strong>Principle 1</strong> <font color="red">数组大小定义的格式必须是[msb:lsb]，不是[size]</font></p>
+</li>
+<li><p><strong>Principle 2</strong> <font color="red">合并数组和非合并数组可以混合使用</font></p>
+</li>
+<li><p><strong>Principle 3</strong> <font color="red">敏感信号只能是标量或者合并数组</font></p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">bit [3:0] [7:0] bytes;  // 4个字节组成32比特</span><br><span class="line">bytes = 32'hCafe_Data;</span><br><span class="line">$display(bytes,,        // 'hCafe_Data</span><br><span class="line"><span class="code">         bytes[3],,     // 'hCA</span></span><br><span class="line"><span class="code">         bytes[3][7]);  // 'b1</span></span><br><span class="line"></span><br><span class="line">bit [3:0] [7:0] barray [3];  // 具有3个合并元素的非合并数组</span><br><span class="line">barray[0] = 32'h0123_4567;   // 使用一个下标可以得到一个字的数据</span><br><span class="line">barray[<span class="string">0</span>][<span class="symbol">3</span>] = 8'h01;        // 使用两个下标可以得到一个字节的数据</span><br><span class="line">barray[<span class="string">0</span>][<span class="symbol">1</span>][<span class="string">6</span>] = 1'b1;      // 使用三个下标可以得到一个比特位的数据</span><br><span class="line"></span><br><span class="line">@(barray)                              // 错误</span><br><span class="line">@(barray[0] or barray[1] or barray[2]) // 正确</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>动态数组</p>
+<ul>
+<li><p>声明时使用空的下标[]，仿真运行时调用new[]分配空间</p>
+</li>
+<li><p>内建子程序（routines）：delete，size</p>
+<figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">int <span class="keyword">dyn</span>[], d2[];</span><br><span class="line">initial begin</span><br><span class="line">  <span class="keyword">dyn</span> = new[<span class="number">5</span>];                 <span class="comment">// 分配空间：5个元素</span></span><br><span class="line">  foreach (<span class="keyword">dyn</span>[j]) <span class="keyword">dyn</span>[j] = j;  <span class="comment">// 初始化</span></span><br><span class="line">  d2 = <span class="keyword">dyn</span>;                     <span class="comment">// 复制动态数组</span></span><br><span class="line">  d2[<span class="number">0</span>] = <span class="number">5</span>;                    <span class="comment">// 修改元素值</span></span><br><span class="line">  <span class="keyword">dyn</span> = new[<span class="number">20</span>](<span class="keyword">dyn</span>);           <span class="comment">// 分配20个整数值，复制dyn 5个值，删除原dyn</span></span><br><span class="line">  <span class="keyword">dyn</span> = new[<span class="number">100</span>];               <span class="comment">// 分配100个整数值，删除原dyn 20个值的存储</span></span><br><span class="line">  <span class="keyword">dyn</span>.delete();                 <span class="comment">// 删除所有元素</span></span><br><span class="line">end</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>队列</p>
+<ul>
+<li><p>声明时使用带美元符号的下标[$]</p>
+</li>
+<li><p>可以使用方法（method）在队列中增加和删除元素</p>
+</li>
+<li><p>可以使用字下标串联替代方法</p>
+<ul>
+<li>[$:2] 中\$代表最小值， [1:\$]中\$代表最大值</li>
+</ul>
+</li>
+<li><p>队列常量（literal）只有大括号没有数组常量中开头的单引号</p>
+</li>
+<li><p>不要对队列使用构造函数new[]</p>
+</li>
+<li><p>可以把定宽或动态数组的值赋给队列</p>
+<figure class="highlight perl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> j = <span class="number">1</span>,</span><br><span class="line">    q2[$] = &#123;<span class="number">3</span>,<span class="number">4</span>&#125;,</span><br><span class="line">    <span class="string">q[$] = &#123;0,2,5&#125;;</span></span><br><span class="line"><span class="string">    </span></span><br><span class="line"><span class="string">initial begin</span></span><br><span class="line"><span class="string">  q.insert(1,j);              // &#123;0,1,2,5&#125;</span></span><br><span class="line"><span class="string">  q.insert(3,q2);             // &#123;0,1,2,3,4,5&#125;</span></span><br><span class="line"><span class="string">  q.delete(1);                // &#123;0,2,3,4,5&#125;</span></span><br><span class="line"><span class="string">  q.push_front(6);            // &#123;6,0,2,3,4,5&#125;</span></span><br><span class="line"><span class="string">  j=q.pop_back;               // &#123;6,0,2,3,4&#125;, j = 5</span></span><br><span class="line"><span class="string">  q.push_back(8);             // &#123;6,0,2,3,4,8&#125;</span></span><br><span class="line"><span class="string">  j=q.pop_front;              // &#123;0,2,3,4,8&#125;, j = 6</span></span><br><span class="line"><span class="string">  foreach(q[i]</span>)</span><br><span class="line">      $display(<span class="string">q[i]</span>);</span><br><span class="line">  q.delete();</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">q</span> = &#123;<span class="string">q[0]</span>,j,<span class="string">q[1:$]);</span></span><br><span class="line"><span class="string">  q = &#123;q[0:2]</span>,q2,<span class="string">q[3:$]&#125;;</span></span><br><span class="line"><span class="string">  q = &#123;q[0]</span>,<span class="string">q[2:$]&#125;;</span></span><br><span class="line"><span class="string">  q = &#123;6,q&#125;;</span></span><br><span class="line"><span class="string">  j = q[$];</span></span><br><span class="line"><span class="string">  q = q[0:$-1]</span>;</span><br><span class="line">  <span class="keyword">q</span> = &#123;&#125;;                    <span class="regexp">//</span> 删除队列</span><br><span class="line">end</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>关联数组</p>
+<ul>
+<li><p>保存稀疏矩阵的元素：超大地址空间，但只为实际写入的元素分配空间。</p>
+</li>
+<li><p>仿真器可以采用树或哈希表的形式存放关联数组。</p>
+</li>
+<li><p>声明时在方括号中放置数据类型，如[int]，[packet]。</p>
+</li>
+<li><p>内建方法：num, exists</p>
+</li>
+<li><p>可以使用字符串索引寻址</p>
+<figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line">initial <span class="built_in">begin</span></span><br><span class="line">  <span class="built_in">bit</span> [<span class="number">63</span>:<span class="number">0</span>] assoc[<span class="built_in">bit</span>[<span class="number">63</span>:<span class="number">0</span>]], idx = <span class="number">1</span>;</span><br><span class="line">  </span><br><span class="line">  <span class="comment">// 对稀疏分布的元素进行初始化：1，2，4，8，16，...</span></span><br><span class="line">  repeat (<span class="number">64</span>) <span class="built_in">begin</span></span><br><span class="line">    assoc[idx] = idx;</span><br><span class="line">    idx = idx &lt;&lt; <span class="number">1</span>;</span><br><span class="line">  <span class="built_in">end</span></span><br><span class="line">  </span><br><span class="line">  <span class="comment">// 使用foreach遍历数组</span></span><br><span class="line">  foreach (assoc[i])</span><br><span class="line">      $<span class="built_in">display</span>(<span class="string">"assoc[%h]=%h"</span>,i,assoc[i]);</span><br><span class="line">      </span><br><span class="line">  <span class="comment">// 使用函数遍历数组</span></span><br><span class="line">  <span class="keyword">if</span> (assoc.first(idx)) <span class="built_in">begin</span>                     <span class="comment">// 得到第一个索引</span></span><br><span class="line">      <span class="keyword">do</span></span><br><span class="line">        $<span class="built_in">display</span>(<span class="string">"assoc[%h]=%h"</span>,idx,assoc[idx]);</span><br><span class="line">        <span class="keyword">while</span> (assoc.next(idx));                  <span class="comment">// 得到下一个索引</span></span><br><span class="line">  <span class="built_in">end</span></span><br><span class="line">  </span><br><span class="line">  <span class="comment">// 找到并删除第一个元素</span></span><br><span class="line">  assoc.first(idx);</span><br><span class="line">  assoc.<span class="keyword">delete</span>(idx);</span><br><span class="line">  $<span class="built_in">display</span>(<span class="string">"The array now has %0d elements"</span>,assoc.num);</span><br><span class="line"><span class="built_in">end</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 带字符串索引的关联数组</span></span><br><span class="line"><span class="comment">/* 输入文件内容如下：</span></span><br><span class="line"><span class="comment">     42 min_address</span></span><br><span class="line"><span class="comment">     1492 max_address</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> <span class="keyword">switch</span>[<span class="built_in">string</span>], min_address, max_address;</span><br><span class="line">initial <span class="built_in">begin</span></span><br><span class="line">  <span class="keyword">int</span> i,r,file;</span><br><span class="line">  <span class="built_in">string</span> s;</span><br><span class="line">  file=$fopen(<span class="string">"switch.txt"</span>,<span class="string">"r"</span>);</span><br><span class="line">  <span class="keyword">while</span>(!$feof(file)) <span class="built_in">begin</span></span><br><span class="line">    r = $<span class="built_in">fscanf</span>(file,<span class="string">"%d %s"</span>, i,s);</span><br><span class="line">    <span class="keyword">switch</span>[s] = i;</span><br><span class="line">  <span class="built_in">end</span></span><br><span class="line">  $fclose(file);</span><br><span class="line">  </span><br><span class="line">  min_address = <span class="keyword">switch</span>[<span class="string">"min_address"</span>];  <span class="comment">// 获取最小地址值，缺省为0</span></span><br><span class="line">  <span class="keyword">if</span> (<span class="keyword">switch</span>.<span class="built_in">exists</span>(<span class="string">"max_address"</span>))     <span class="comment">// 获取最大地址值，缺省为1000</span></span><br><span class="line">    max_address = <span class="keyword">switch</span>[<span class="string">"max_address"</span>];</span><br><span class="line">  <span class="keyword">else</span></span><br><span class="line">    max_address = <span class="number">1000</span>;</span><br><span class="line">  foreach (<span class="keyword">switch</span>[s])                   <span class="comment">// 打印数组所有元素</span></span><br><span class="line">      $<span class="built_in">display</span>(<span class="string">"switch['%s']=%d"</span>,s,<span class="keyword">switch</span>[s]);</span><br><span class="line"><span class="built_in">end</span></span><br></pre></td></tr></table></figure>
+<p>​</p>
+</li>
+</ul>
+</li>
+</ol>
 
       
     </div>
